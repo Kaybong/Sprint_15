@@ -19,24 +19,45 @@ API позволяет авторизованными пользователям
 неавторизированным пользователям доступны только безопасные действия через API. Кроме того навторизованный пользователь не сможет полученить список отзывов, произведений, комментариев на отзывы. 
 
 
-Как запустить проект:
+Как запустить проект амостоятельно:
 
-Клонировать репозиторий и перейти в него в командной строке:
-git clone https://github.com/ArtKeyplex/api_yamdb
+    Клонировать репозиторий и перейти в него в командной строке:
+    git clone https://github.com/ArtKeyplex/api_yamdb
 
-Cоздать и активировать виртуальное окружение:
-python -m venv env
-source env/Scripts/activate
+    Cоздать и активировать виртуальное окружение:
+    python -m venv env
+    source env/Scripts/activate
 
-Установить зависимости из файла requirements.txt:
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+    Установить зависимости из файла requirements.txt:
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
 
-Выполнить миграции:
-python manage.py migrate
+    Выполнить миграции:
+    python manage.py migrate
 
-Запустить проект:
-python manage.py runserver
+    Запустить проект:
+    python manage.py runserver
+
+
+Как запустить проект с помощью контенера:
+
+    Клонировать контейнер с Github Docker:
+    __________________________
+
+    Перейти в папку с файлом Dokerfile 
+    
+    Запустить сборку:
+    docker run --name <имя контейнера> -it -p 8000:8000 infra_sp2
+
+
+Шаблон наполнения env-файла:
+
+    DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
+    DB_NAME=postgres # имя базы данных
+    POSTGRES_USER=postgres # логин для подключения к базе данных
+    POSTGRES_PASSWORD=postgres # пароль для подключения к БД (установите свой)
+    DB_HOST=db # название сервиса (контейнера)
+    DB_PORT=5432 # порт для подключения к БД
 
 
 Документация и примеры взаимодействия с API Yatube:
